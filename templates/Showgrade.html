@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩查询</title>
+    <style>
+        @import url({{ url_for('static',filename='tablestyle.css')}});
+    </style>
+</head>
+<body>
+<table id="box-table-a">
+
+
+    <caption style="font-size: 18px;font-family:'Lucida Sans Unicode,Lucida Grande, Sans-Serif';caption-side:top;color:#039;margin-bottom: 30px">{{ year }}
+        年{{ term }}学期成绩
+    </caption>
+    <thead>
+
+
+    	<tr>
+
+
+        	<th scope="col" style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;" >课程名</th>
+
+            <th scope="col" style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;" >学分</th>
+            <th scope="col" style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;">分数</th>
+
+
+
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+
+    {% for i in results %}
+    	<tr>
+
+        	<td  style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;">{{ results[loop.index0]['课程名称']}}</td>
+
+            <td  style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;">{{results[loop.index0]['学分']}}</td>
+
+
+            <td  style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;vertical-align: middle;
+        text-align: center;">{{ results[loop.index0]['成绩']}} </td>
+
+
+        </tr>
+    {% endfor %}
+
+
+    </tbody>
+
+</table>
+</body>
+</html>
